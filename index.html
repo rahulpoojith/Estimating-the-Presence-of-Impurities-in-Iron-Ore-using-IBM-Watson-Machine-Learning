@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+body
+{
+    background-image: url("");
+    background-size: cover;
+   
+}
+.navbar
+{
+margin: 0px;
+padding:20px;
+background-color:white;
+opacity:0.6;
+color:black;
+font-family:'Roboto',sans-serif;
+font-style: italic;
+border-radius:20px;
+font-size:25px;
+}
+a
+{
+color:grey;
+float:right;
+text-decoration:none;
+font-style:normal;
+padding-right:20px;
+}
+a:hover{
+background-color:black;
+color:white;
+border-radius:15px;0
+font-size:30px;
+padding-left:10px;
+}
+.pred{
+text-align:center;
+background-color:black;
+width:800px;
+opacity:0.8;
+margin:auto;
+margin-top:40px;
+border-radius:20px;
+font-weight:20px;
+color:grey;
+font-size:20px;
+
+}
+.pred:hover{
+box-shadow: 15px 15px 20px 10px white;
+}
+span{
+display:inline-block;
+padding-left:10px;
+padding-tp:5px;
+}
+
+<link href="static/css/main.css'", rel="stylesheet">
+</style>
+</head>
+
+<body>
+<div class='navbar'>
+<b>Quality Prediction in a Mining Process<b>
+<a href="{{url_for('about')}}" >About</a>
+
+</div>
+<div class="login">
+<h1 style="font-size:20px; padding-top:22px; color:black;">Enter the Inputs</h1>
+
+    <form action="{{ url_for('y_predict')}}"method="post">
+        </select><span>
+        <span><p>Iron Feed</p>
+        <p><input "number step=any"  name="% Iron Feed" placeholder="% Iron Feed" required="required"/></p></span>
+        
+        <span><p>Starch Flow</p>
+        <p><input "number step=any"  name="Starch Flow" placeholder="Starch Flow" required="required"/></p></span>
+		</select>
+		
+		<span><p>Amina Flow</p>
+        <p><input "number step=any"  name="Amina Flow" placeholder="Amina Flow" required="required"/></p></span>
+        
+        <span><p>Ore Pulp Flow</p>
+        <p><input "number step=any"  name="Ore Pulp Flow" placeholder="Ore Pulp Flow" required="required"/></p></span>
+        
+        <span><p>Ore Pulp pH</p>
+        <p><input "number step=any"  name="Ore Pulp pH" placeholder="Ore Pulp pH" required="required"/></p></span>
+        
+        <span><p>Ore Pulp Density</p>
+        <p><input "number step=any"  name="Ore Pulp Density" placeholder="Ore Pulp Density" required="required"/></p></span>
+        
+        <span><p>Average Air Flow</p>
+        <p><input "number step=any"  name="aaf_1456" placeholder="aaf_1456" required="required"/></p></span>
+        
+        <span><p>Average Floating Level</p>
+        <p><input "number step=any"  name="afl_1456" placeholder="afl_1456" required="required"/></p></span>
+        
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
+
