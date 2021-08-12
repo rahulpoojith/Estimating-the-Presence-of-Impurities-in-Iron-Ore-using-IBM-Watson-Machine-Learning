@@ -3,13 +3,13 @@
 <head>
 
 <style>
-body
+/* body
 {
     background-image: url("");
     background-size: cover;
    
-}
-.navbar
+} */
+/* .navbar
 {
 margin: 0px;
 padding:20px;
@@ -20,8 +20,8 @@ font-family:'Roboto',sans-serif;
 font-style: italic;
 border-radius:20px;
 font-size:25px;
-}
-a
+} */
+/* a
 {
 color:grey;
 float:right;
@@ -32,10 +32,10 @@ padding-right:20px;
 a:hover{
 background-color:black;
 color:white;
-border-radius:15px;0
+border-radius:15px;
 font-size:30px;
 padding-left:10px;
-}
+} */
 .pred{
 text-align:center;
 background-color:black;
@@ -55,61 +55,81 @@ box-shadow: 15px 15px 20px 10px white;
 span{
 display:inline-block;
 padding-left:10px;
-padding-tp:5px;
+padding-top:5px;
 }
-
-<link href="static/css/main.css'", rel="stylesheet">
+body{
+    background-image: linear-gradient(to right, #f48aff, #c771ed, #985bda, #6347c6, #0e35b2);
+}
+.label{
+    font-weight:bold;
+}
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<link href="static/css/main.css'", rel="stylesheet">
 </head>
 
 <body>
-<div class='navbar'>
-<b>Quality Prediction in a Mining Process<b>
-<a href="{{url_for('about')}}" >About</a>
-
-</div>
+<!-- <div class='navbar'>
+</div> -->
+<nav class="navbar navbar-light bg-dark" style="padding-left: 20px;padding-right:20px;">
+  <a class="navbar-brand" style="color:white;margin:0 auto;">
+<b>Quality Prediction in a Mining Process</b></a>
+  <form class="form-inline">
+    <button class="btn" type="button" style="width:150px;"><a style="color:white;text-decoration:none;" href="{{url_for('about')}}" >About</a></button>
+  </form>
+</nav>
 <div class="login">
-<h1 style="font-size:20px; padding-top:22px; color:black;">Enter the Inputs</h1>
-
-    <form action="{{ url_for('y_predict')}}"method="post">
-        </select><span>
-        <span><p>Iron Feed</p>
-        <p><input "number step=any"  name="% Iron Feed" placeholder="% Iron Feed" required="required"/></p></span>
-        
-        <span><p>Starch Flow</p>
-        <p><input "number step=any"  name="Starch Flow" placeholder="Starch Flow" required="required"/></p></span>
-		</select>
-		
-		<span><p>Amina Flow</p>
-        <p><input "number step=any"  name="Amina Flow" placeholder="Amina Flow" required="required"/></p></span>
-        
-        <span><p>Ore Pulp Flow</p>
-        <p><input "number step=any"  name="Ore Pulp Flow" placeholder="Ore Pulp Flow" required="required"/></p></span>
-        
-        <span><p>Ore Pulp pH</p>
-        <p><input "number step=any"  name="Ore Pulp pH" placeholder="Ore Pulp pH" required="required"/></p></span>
-        
-        <span><p>Ore Pulp Density</p>
-        <p><input "number step=any"  name="Ore Pulp Density" placeholder="Ore Pulp Density" required="required"/></p></span>
-        
-        <span><p>Average Air Flow</p>
-        <p><input "number step=any"  name="aaf_1456" placeholder="aaf_1456" required="required"/></p></span>
-        
-        <span><p>Average Floating Level</p>
-        <p><input "number step=any"  name="afl_1456" placeholder="afl_1456" required="required"/></p></span>
-        
-        
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    
+    <br/>
+<h1 style="font-size:20px; padding-top:22px; color:black;text-align:center;">Enter the Inputs</h1>
+    <form action="{{ url_for('y_predict')}}" method="post" style="padding:30px;width:70%;margin:0 auto; margin-top:30px;">
+        <div class="row">
+            <div class="col">
+                <p class="label">Iron Feed</p>
+                <p><input "number step=any" class="form-control"  name="% Iron Feed" placeholder="% Iron Feed" required="required"/></p>
+            </div>
+            <div class="col">
+                <p class="label">Starch Flow</p>
+                <p><input "number step=any"  class="form-control" name="Starch Flow" placeholder="Starch Flow" required="required"/></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="label">Amina Flow</p>
+                <p><input "number step=any"  class="form-control" name="Amina Flow" placeholder="Amina Flow" required="required"/></p>
+            </div>
+            <div class="col">
+                <p class="label">Ore Pulp Flow</p>
+                <p><input "number step=any"  class="form-control" name="Ore Pulp Flow" placeholder="Ore Pulp Flow" required="required"/></p>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col">
+                <p class="label">Ore Pulp pH</p>
+                <p><input "number step=any"  class="form-control" name="Ore Pulp pH" placeholder="Ore Pulp pH" required="required"/></p>
+            </div>
+            <div class="col">
+                <p class="label">Ore Pulp Density</p>
+                <p><input "number step=any"  class="form-control" name="Ore Pulp Density" placeholder="Ore Pulp Density" required="required"/></p>
+            </div>
+        </div>
+       <div class="row">
+        <div class="col">
+            <p class="label">Average Air Flow</p>
+            <p><input "number step=any"  class="form-control" name="aaf_1456" placeholder="aaf_1456" required="required"/></p>
+        </div>
+        <div class="col">
+            <p class="label">Average Floating Level</p>
+            <p><input "number step=any"  class="form-control" name="afl_1456" placeholder="afl_1456" required="required"/></p>
+        </div>
+       </div> 
+        <p style="text-align:center;"><button type="submit" class="btn btn-primary btn-block btn-large" style="width:200px;margin-top:20px;">Predict</button></p>
     </form>
-
-   <br>
-   <br>
-   {{ prediction_text }}
+   <p style="text-align:center;margin-top:-15px;"><b>{{ prediction_text }}</b></p>
 
  </div>
 
 
 </body>
 </html>
-
